@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            margin:1rem;
+        }
+    </style>
+</head>
+<body>
+    <button id="show-button">show</button>
+    <div id="container">
+      
+    </div>
+</body>
+<script>
+    const createButton=()=>{
+        console.log('callin')
+        const container=document.getElementById('container')
+        const fragment= new DocumentFragment()
+        for(let i=1;i<=5;i++)
+        {
+            let btn=document.createElement('button')
+            btn.textContent=i;
+        fragment.append(btn)
+        }
+        console.log(container.textContent)
+        container.append(fragment)
+        container.addEventListener('click',alertBox)
+        event.target.removeEventListener('click',createButton)
+    }
+    window.addEventListener('load',()=>{
+        let showBtn=document.getElementById('show-button')
+        showBtn.addEventListener('click',createButton)
+    })
+    const alertBox=()=>{
+       
+        alert(event.target.textContent)
+    }
+</script>
+</html>
