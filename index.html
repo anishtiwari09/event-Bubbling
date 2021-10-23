@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Card Details</title>
+    <style>
+    #input-box,#card{
+        text-align: center;
+        margin-top:2rem;
+    }
+    #input-box > div,#input-box button{
+        margin-top:0.8rem;
+       
+    }
+    #input-box input,#input-box button{
+        padding:0.4rem;
+    }
+    #card{
+        text-align: center;
+    }
+    .visible{
+        display: block;
+    }
+    .hidden{
+        display:none;
+    }
+    button{
+        margin-left:0.24rem;
+    }
+   
+</style>
+</head>
+<body>
+    <div id="input-box">
+        <div><input type="text" id="name" placeholder="Name"></div>
+        <div><input type="text" id="mobile" placeholder="Mobile"></div>
+        <button>Create</button>
+       
+    </div>
+    <div id="card"></div>
+<style>
+    
+</style>  
+</body>
+<script>
+    const showUserDetails=()=>{
+       
+        let nameInput=document.getElementById('name')
+        let mobileInput=document.getElementById('mobile')
+        let container=document.getElementById('card')
+        let showMob=document.createElement('button')
+        let hideMob=document.createElement('button')
+        let div=document.createElement('div')
+        showMob.textContent="Show"
+        hideMob.textContent="Hide"
+        div.append(showMob,hideMob)
+        if(name.value==""||mobile.value=="")
+            return
+            console.log('show')
+        const nameEle=document.createElement('p')
+        const mobileEle=document.createElement('p')
+        nameEle.innerHTML=`<span>Name</span>: ${nameInput.value}`
+        mobileEle.innerHTML=`<span>Mobile</span>: ${mobileInput.value}`
+        mobileEle.className="hidden"
+        mobileEle.setAttribute('id','mob')
+        div.addEventListener('click',showHide)
+        container.append(nameEle,mobileEle,div)
+
+    }
+    let count=0;
+    const showHide=()=>{
+        alert(count++)
+        //event.stopPropagation()
+        
+       
+        let mobileEle=document.getElementById('mob')
+        if(event.target.textContent=="Show")
+        {
+            mobileEle.className="visible"
+            return
+        }
+        mobileEle.className="hidden"
+        return
+
+    }
+    window.addEventListener('load',()=>{
+        let button=document.querySelector('button')
+
+        button.addEventListener('click',showUserDetails)
+    })
+</script>
+</html>
